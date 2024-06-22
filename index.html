@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Altair | Characters | CMC Mods</title>
+    <link rel="icon" href="https://crusademods.github.io/assets/icon.svg">
+    <style>
+        body {
+            /* My Palette */
+            /* Titlebar */
+            --inf-grey1: #16171e;
+            /* Side-est-bar */
+            --inf-grey2: #1a1c23;
+            /* Sidebar */
+            --inf-grey3: #23252e;
+            /* Body */
+            --inf-grey4: #272a34;
+            /* Buttons */
+            --inf-grey5: #323643;
+
+            /* Primary Blue */
+            --inf-blue1: #2777ff;
+            /* Secondary Blue */
+            --inf-blue2: #005af3;
+
+            /* Text */
+            --inf-white3: #eeeeec;
+            /* Sidebar Icons */
+            --inf-white2: #bbbbbd;
+            /* Inactive (Used with sidebar) */
+            --inf-white1: #888a8d;
+        }
+
+        body {
+            background-color: var(--inf-grey1);
+            color: var(--inf-white3);
+            font-family: Ubuntu;
+            margin: 0px auto;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--inf-grey1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--inf-grey5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--inf-blue1);
+        }
+
+        #container {
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        nav {
+            z-index: 10;
+            height: 50px;
+            position: sticky;
+            background-color: var(--inf-grey1);
+            text-align: center;
+        }
+
+        .title {
+            height: 185px;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .title-section {
+            display: inline-flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            background-color: var(--inf-grey2);
+            position: relative;
+        }
+
+        .title-angle {
+            position: absolute;
+            top: 0px;
+            background-color: var(--inf-grey2);
+            height: 100%;
+            width: 75px;
+            transform: skewX(-15deg);
+        }
+
+        .title-text {
+            z-index: 2;
+            text-wrap: nowrap;
+        }
+
+        .title-text h1,
+        .title-text h2,
+        .title-text h3,
+        .title-text h4 {
+            display: inline-block;
+            margin: 0px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            font-size: 36pt;
+        }
+
+        .title-text h3,
+        .title-text h4 {
+            font-style: italic;
+        }
+
+        .middle {
+            vertical-align: middle;
+        }
+
+        #title-animation {
+            width: 50px;
+            height: 75px;
+            vertical-align: middle;
+            object-fit: cover;
+            object-position: top right;
+        }
+
+        #title-series {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            margin: 5px;
+            filter: opacity(10%);
+        }
+
+        #title-pfp {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        #title-homestage {
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            image-rendering: pixelated;
+        }
+
+        #title-cbust {
+            z-index: 1;
+            position: absolute;
+            top: 0px;
+            left: 60%;
+            height: 100%;
+            width: 40%;
+            transform: translateX(-50%);
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .main {
+            padding: 10px;
+            background-color: var(--inf-grey4);
+            min-height: calc(100vh - 225px - 30px);
+        }
+
+        .no-select {
+            user-select: none;
+        }
+
+        .supported-icon {
+            height: 18pt;
+            width: 18pt;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .supported-text {
+            vertical-align: middle;
+        }
+
+        .stat-display {
+            display: inline-block;
+            border-radius: 3px;
+            background-color: var(--inf-grey4);
+            padding: 3px;
+            margin-bottom: 3px;
+            margin-top: -1px;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 4px;
+            border-color: black;
+            box-shadow: 0px 1px #00000088;
+        }
+
+        .stat-display:hover {
+            filter: none;
+            background-color: var(--inf-grey2);
+        }
+
+        .stat-icon,
+        .download-icon {
+            display: inline-block;
+            vertical-align: middle;
+            height: 14pt;
+            width: 14pt;
+        }
+
+        .stat-text,
+        .download-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            filter: brightness(80%);
+        }
+
+        #title-center {
+            flex-grow: 1;
+        }
+
+        #title-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #title-right .title-text {
+            text-align: right;
+        }
+
+        .ext-link {
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+        }
+
+        #slide-wrapper {
+            display: flex;
+            height: min-content;
+            overflow-x: scroll;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide {
+            max-width: min(600px, 100%);
+            max-height: 325px;
+            margin: 5px;
+            box-sizing: border-box;
+        }
+
+        .download-display {
+            display: inline-block;
+            border-radius: 5px;
+            background-color: var(--inf-grey5);
+            padding: 5px;
+            margin-bottom: 3px;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 4px;
+            border-color: #000000;
+            box-shadow: 0px 1px #00000088;
+        }
+
+        .download-display:hover {
+            filter: none;
+            background-color: var(--inf-grey4);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <nav>
+            <br />[Nav Stuff]
+        </nav>
+        <div class="title">
+            <div class="title-section">
+                <div class="title-text">
+                    <img src="./assets/animation.gif" id="title-animation" draggable="false" class="no-select" />
+                    <h1 style="margin-right: -25px;">Altair</h1>
+                </div>
+                <a class="title-text" href="TODO" style="margin-left: 5px;">
+                    <h3 style="margin-right: -15px;">Assassin's Creed</h3>
+                </a>
+                <div class="title-text" href="TODO" style="margin-left: 5px;">
+                    <h4 style="margin-right: -15px;">(AC 1, AC Revelations)</h4>
+                </div>
+                <a class="title-text" href="https://github.com/Inferno214221" style="margin-top: 5px;">
+                    <img src="https://avatars.githubusercontent.com/u/88266017" id="title-pfp" draggable="false" class="no-select" />
+                    <h2>Inferno214221</h2>
+                </a>
+                <div class="title-angle" style="right: -25px;"></div>
+                <img src="./assets/series.png" id="title-series" draggable="false" class="no-select" />
+            </div>
+            <div id="title-center">
+                <img src="./assets/homestage.png" id="title-homestage" draggable="false" class="no-select" />
+                <img src="./assets/cbust.png" id="title-cbust" draggable="false" class="no-select" />
+            </div>
+            <div class="title-section" id="title-right">
+                <!-- <div class="title-text">
+                    <span style="margin: 5px;">Supports:</span>
+                </div> -->
+                <div class="title-text" style="margin-right: 5px;">
+                    <a class="stat-display" href="#download">
+                        <img src="https://crusademods.github.io/assets/download.svg" class="stat-icon" />
+                        <span class="stat-text">1200</span>
+                    </a>
+                    <a class="stat-display" href="https://github.com/Inferno214221/character-template">
+                        <img src="https://crusademods.github.io/assets/star.svg" class="stat-icon" />
+                        <span class="stat-text">35</span>
+                    </a>
+                    <br />
+                    <a class="stat-display" href="https://github.com/Inferno214221/character-template/releases">
+                        <img src="https://crusademods.github.io/assets/published.svg" class="stat-icon" />
+                        <span class="stat-text">1y</span>
+                    </a>
+                    <a class="stat-display" href="https://github.com/Inferno214221/character-template/releases/latest">
+                        <img src="https://crusademods.github.io/assets/last-update.svg" class="stat-icon" />
+                        <span class="stat-text">1y</span>
+                    </a>
+                    <br />
+                    <a href="https://github.com/Inferno214221/character-template/blob/main/LICENSE">
+                        <img src="https://crusademods.github.io/assets/gpl-v3.svg" style="height: 16pt; margin: 3px;"/>
+                        <!-- <img src="./license.svg" class="stat-icon" />
+                        <span class="stat-text">GNU GPLv3</span> -->
+                    </a>
+                </div>
+                <div class="title-text" style="margin-left: -30px;">
+                    <img src="https://crusademods.github.io/assets/cmc.png" class="supported-icon" />
+                    <span class="supported-text">v8, v7</span>
+                    <br />
+                    <img src="https://crusademods.github.io/assets/crusade.png" class="supported-icon" />
+                    <span class="supported-text">9.4, 9.5</span>
+                </div>
+                <div style="flex-grow: 1;"></div>
+                <div class="title-text" style="margin-left: -40px; margin-top: 3px; margin-bottom: -2px;">
+                    <a href="https://github.com/Inferno214221/character-template">
+                        <img src="https://crusademods.github.io/assets/github.png" class="ext-link" />
+                    </a>
+                    <a href="https://gamebanana.com/mods/not-on-gb-rip">
+                        <img src="https://crusademods.github.io/assets/gamebanana.png" class="ext-link" style="image-rendering: pixelated;" />
+                    </a>
+                    <a href="https://crusadearchives.proboards.com/thread/256/not-on-archives-rip">
+                        <img src="https://crusademods.github.io/assets/archives.ico" class="ext-link" />
+                    </a>
+                    <a href="https://inferno214221.com/no-page-here-either">
+                        <img src="./assets/personal-website.png" class="ext-link" />
+                    </a>
+                </div>
+                <div class="title-angle" style="left: -25px;"></div>
+            </div>
+        </div>
+        <div class="main">
+            <div id="slide-wrapper">
+                <img src="./assets/slide-1.webp" class="slide" />
+                <img src="./assets/slide-1.webp" class="slide" />
+                <img src="./assets/slide-1.webp" class="slide" />
+                <img src="./assets/slide-1.webp" class="slide" />
+                <img src="./assets/slide-1.webp" class="slide" />
+            </div>
+            <h2 id="desc">Description</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae massa quis magna ultrices
+                blandit ut id nisi. Etiam ex enim, vehicula non porttitor at, pellentesque eu augue. In elementum augue
+                nulla, sit amet rhoncus diam pulvinar vitae. Nunc sagittis tellus ut tempus convallis. Aliquam a enim
+                mollis, tincidunt velit vel, posuere lorem. Proin sed nulla vitae ipsum bibendum fringilla vehicula sed
+                purus. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br />
+                <br />
+                Mauris laoreet magna quis sem eleifend lobortis. Praesent nisi ex, sagittis suscipit mauris ac,
+                sollicitudin eleifend mi. Nullam volutpat dictum turpis, in euismod orci tincidunt at. Nulla facilisi.
+                Cras condimentum eu lorem sed ornare. Morbi bibendum lectus nec elit euismod consequat. Donec in diam
+                augue. Ut ornare sem quis auctor rutrum. Phasellus dignissim enim quis ligula bibendum, eget blandit
+                arcu posuere. Donec cursus sapien eget consectetur pretium. Quisque sodales malesuada aliquet. Curabitur
+                placerat nulla felis, sed blandit turpis condimentum at. Nullam ante dolor, euismod a luctus ac, aliquet
+                a metus.<br />
+                <br />
+                Duis finibus, lectus et convallis finibus, metus lorem efficitur sem, finibus dictum dolor dolor sed
+                ipsum. Mauris metus felis, condimentum ut faucibus sed, tempor ac eros. In lacinia lacus eget ante
+                eleifend, ut bibendum velit blandit. Vivamus vulputate luctus finibus. Phasellus imperdiet condimentum
+                mauris in gravida. Nulla sed lobortis tellus, eu pellentesque est. Nulla nunc dolor, rutrum eu mollis
+                et, ultrices ac libero. Cras non leo ultricies, rutrum nibh vitae, vulputate magna. In hendrerit turpis
+                eu mollis vehicula. Aliquam a nunc nisi. Nam hendrerit nibh ante, nec pretium leo facilisis ac. Nullam
+                non tempor mi. Maecenas commodo odio ut nisl suscipit ornare. Sed tincidunt ultrices nisl eu
+                consectetur.<br />
+                <br />
+                Praesent ultrices posuere tortor, a mattis sapien euismod vitae. Suspendisse eu facilisis eros. In
+                facilisis nulla ut ipsum maximus, in convallis ligula molestie. Nulla varius faucibus augue eu
+                malesuada. Donec interdum dui iaculis egestas accumsan. Duis ac facilisis leo. Nullam scelerisque mi sit
+                amet nisi euismod porta. Phasellus eget dui at sapien laoreet fringilla. Nam id vehicula sem. Vivamus mi
+                nunc, porttitor id ante ut, efficitur commodo felis. Donec congue faucibus purus, congue pellentesque
+                massa feugiat vel.<br />
+                <br />
+                Phasellus id porttitor odio. Curabitur in lacus eget leo aliquet tempus in in dui. Nam molestie
+                ultricies augue. Vivamus sed euismod eros. Mauris porta eros justo, a molestie nisi ultricies et. Mauris
+                massa quam, tempus ac felis in, vulputate rutrum nisl. Quisque malesuada fermentum consequat.
+            </p>
+            <h2 id="download">Download</h2>
+            <div>
+                <h3>v1.1.0</h3>
+                <ul>
+                    <li>Nerfed dair</li>
+                    <li>Slightly decreased attack speed</li>
+                </ul>
+                <div>
+                    <a href="cmcmm:https://github.com/Inferno214221/character-template/releases/tag/v1.1.0" class="download-display">
+                        <img src="https://crusademods.github.io/assets/cmcmm.png" class="download-icon" />
+                        <span class="download-text">CMC Mod Manager</span>
+                    </a>
+                    <a href="https://github.com/Inferno214221/character-template/archive/refs/tags/v1.1.0.zip" class="download-display">
+                        <img src="https://crusademods.github.io/assets/download.svg" class="download-icon" />
+                        <span class="download-text">Download</span>
+                    </a>
+                    <a href="https://github.com/Inferno214221/character-template/tree/v1.1.0" class="download-display">
+                        <img src="https://crusademods.github.io/assets/github.png" class="download-icon" />
+                        <span class="download-text">View Files</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3>v1.0.0</h3>
+                <ul>
+                    <li>Initial release</li>
+                    <li>No changes</li>
+                </ul>
+                <div>
+                    <a href="cmcmm:https://github.com/Inferno214221/character-template/releases/tag/v1.0.0" class="download-display">
+                        <img src="https://crusademods.github.io/assets/cmcmm.png" class="download-icon" />
+                        <span class="download-text">CMC Mod Manager</span>
+                    </a>
+                    <a href="https://github.com/Inferno214221/character-template/archive/refs/tags/v1.0.0.zip" class="download-display">
+                        <img src="https://crusademods.github.io/assets/download.svg" class="download-icon" />
+                        <span class="download-text">Download</span>
+                    </a>
+                    <a href="https://github.com/Inferno214221/character-template/tree/v1.0.0" class="download-display">
+                        <img src="https://crusademods.github.io/assets/github.png" class="download-icon" />
+                        <span class="download-text">View Files</span>
+                    </a>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+</body>
+
+</html>
