@@ -6,6 +6,12 @@
     <title>Altair | Characters | CMC Mods</title>
     <link rel="icon" href="https://crusademods.github.io/assets/icon.svg">
     <link rel="stylesheet" href="https://crusademods.github.io/characters/character.css">
+    <script>
+        const GITHUB_URL = "https://github.com/Inferno214221/cmc-mod-manager";
+        const GAMEBANANA_URL = "https://gamebanana.com/tools/14136";
+        const PUBLISHED = new Date();
+        const LAST_UPDATE = new Date();
+    </script>
 </head>
 
 <body>
@@ -40,23 +46,23 @@
                 <div class="title-text" id="title-stats">
                     <a class="stat-display" href="#download">
                         <img src="https://crusademods.github.io/assets/download.svg">
-                        <span>1200</span>
+                        <span id="stat-downloads"></span>
                     </a>
-                    <a class="stat-display" href="https://github.com/Inferno214221/character-template">
+                    <a class="stat-display" href="https://github.com/crusademods/character-template">
                         <img src="https://crusademods.github.io/assets/star.svg">
-                        <span>35</span>
+                        <span id="stat-stars"></span>
                     </a>
                     <br>
-                    <a class="stat-display" href="https://github.com/Inferno214221/character-template/releases">
+                    <a class="stat-display" href="https://github.com/crusademods/character-template/releases">
                         <img src="https://crusademods.github.io/assets/published.svg">
-                        <span>1y</span>
+                        <span id="stat-published">1y</span>
                     </a>
-                    <a class="stat-display" href="https://github.com/Inferno214221/character-template/releases/latest">
+                    <a class="stat-display" href="https://github.com/crusademods/character-template/releases/latest">
                         <img src="https://crusademods.github.io/assets/last-update.svg">
-                        <span>1y</span>
+                        <span id="stat-last-update">1y</span>
                     </a>
                     <br>
-                    <a href="https://github.com/Inferno214221/character-template/blob/main/LICENSE">
+                    <a href="https://github.com/crusademods/character-template/blob/main/LICENSE">
                         <img src="https://crusademods.github.io/assets/gpl-v3.svg" id="stat-license">
                     </a>
                 </div>
@@ -69,16 +75,16 @@
                 </div>
                 <div id="title-filler"></div>
                 <div class="title-text" id="title-links">
-                    <a href="https://github.com/Inferno214221/character-template">
+                    <a id="github-link" href="https://github.com/crusademods/character-template">
                         <img src="https://crusademods.github.io/assets/github.png">
                     </a>
-                    <a href="https://gamebanana.com/mods/not-on-gb-rip">
-                        <img src="https://crusademods.github.io/assets/gamebanana.png" id="gb-icon">
+                    <a id="gamebanana-link" href="https://gamebanana.com/mods/not-on-gb-rip">
+                        <img src="https://crusademods.github.io/assets/gamebanana.png">
                     </a>
-                    <a href="https://crusadearchives.proboards.com/thread/256/not-on-archives-rip">
+                    <a id="archives-link" href="https://crusadearchives.proboards.com/thread/256/not-on-archives-rip">
                         <img src="https://crusademods.github.io/assets/archives.ico">
                     </a>
-                    <a href="https://inferno214221.com/no-page-here-either">
+                    <a id="other-link" href="https://inferno214221.com/no-page-here-either">
                         <img src="./assets/personal-website.png">
                     </a>
                 </div>
@@ -138,15 +144,15 @@
                         <li>Slightly decreased attack speed</li>
                     </ul>
                     <div class="download-sources">
-                        <a href="cmcmm:https://github.com/Inferno214221/character-template/releases/tag/v1.1.0">
+                        <a href="cmcmm:https://github.com/crusademods/character-template/releases/tag/v1.1.0">
                             <img src="https://crusademods.github.io/assets/cmcmm.png">
                             <span>CMC Mod Manager</span>
                         </a>
-                        <a href="https://github.com/Inferno214221/character-template/archive/refs/tags/v1.1.0.zip">
+                        <a href="https://github.com/crusademods/character-template/archive/refs/tags/v1.1.0.zip">
                             <img src="https://crusademods.github.io/assets/download.svg">
                             <span>Download</span>
                         </a>
-                        <a href="https://github.com/Inferno214221/character-template/tree/v1.1.0">
+                        <a href="https://github.com/crusademods/character-template/tree/v1.1.0">
                             <img src="https://crusademods.github.io/assets/github.png">
                             <span>View Files</span>
                         </a>
@@ -159,15 +165,15 @@
                         <li>No changes</li>
                     </ul>
                     <div class="download-sources">
-                        <a href="cmcmm:https://github.com/Inferno214221/character-template/releases/tag/v1.0.0">
+                        <a href="cmcmm:https://github.com/crusademods/character-template/releases/tag/v1.0.0">
                             <img src="https://crusademods.github.io/assets/cmcmm.png">
                             <span>CMC Mod Manager</span>
                         </a>
-                        <a href="https://github.com/Inferno214221/character-template/archive/refs/tags/v1.0.0.zip">
+                        <a href="https://github.com/crusademods/character-template/archive/refs/tags/v1.0.0.zip">
                             <img src="https://crusademods.github.io/assets/download.svg">
                             <span>Download</span>
                         </a>
-                        <a href="https://github.com/Inferno214221/character-template/tree/v1.0.0">
+                        <a href="https://github.com/crusademods/character-template/tree/v1.0.0">
                             <img src="https://crusademods.github.io/assets/github.png">
                             <span>View Files</span>
                         </a>
@@ -177,6 +183,7 @@
             <br>
         </div>
     </div>
+    <script src="./index.js"></script>
 </body>
 
 </html>
